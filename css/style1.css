@@ -1,0 +1,459 @@
+/*reset css*/
+* {
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+/*define font*/
+@font-face {
+	font-family: Lato-Regular;
+	src:url('../fonts/Lato/Lato-Regular.ttf');
+}
+
+@font-face {
+	font-family: Lato-Italic;
+	src:url('../fonts/Lato/Lato-Italic.ttf');
+}
+
+@font-face {
+	font-family: Lato-Light;
+	src:url('../fonts/Lato/Lato-Light.ttf');
+}
+
+@font-face {
+	font-family: Lato-Bold;
+	src:url('../fonts/Lato/Lato-Bold.ttf');
+}
+
+/*pseudo class*/
+:root{
+	--primary-color: #444;
+	--second-color: #fff;
+	--third-color: #16a086;
+	scroll-behavior: smooth; /* nhận nút back to top chạy từ từ*/
+	
+	
+
+}
+
+body {
+
+	max-width: 1020px;
+	margin: auto;
+	font-family: Lato-Regular;
+	color: var(--primary-color);
+
+}
+
+button {
+	height: 37px ;
+	background-color: #1bbc9b;
+	color: var(--second-color);
+	font-family: Lato-Bold;
+	font-size: 13px;
+	letter-spacing: 2px;
+	padding-left: 13px;
+	padding-right: 13px;
+	border: none;
+}
+
+
+
+/**header*/
+
+.navbar-light .navbar-nav .nav-link {
+	color: var(--primary-color);
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link:hover {
+	color: var(--second-color);
+	background-color: #1bbc9b;
+}
+
+.navbar {
+	padding-bottom: 19px;
+	padding-top: 19px;
+}
+
+.navbar.fixed-top {
+	background-color: rgb(255,255,0, 0.8);
+	padding-top: 0px;
+	padding-bottom: 0px;
+	animation: 1s menuAnimation;
+
+} 
+
+@keyframes menuAnimation {
+	from {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0%);
+	}
+}
+
+.dummy-padding-top {
+	padding-top: 95px;
+}
+/*HOME*/
+
+.home {
+	padding-top: 71px ;
+	padding-bottom: 80px;
+	background-image: url(../images/banner.jpg);
+	background-position: center;
+	background-size: cover;
+	color: var(--second-color);;
+
+}
+
+.home h1 {
+	font-family: Lato-Light;
+	font-size: 55px;
+	margin-bottom: 29px;
+
+}
+
+.home h1 b {
+	font-family: Lato-Bold;
+}
+
+
+
+.home p {
+	font-family: Lato-Light;
+	font-size: 18px;
+	margin: auto;
+	margin-bottom: 49px;
+	max-width: 576px;
+}
+.home button {
+	
+	margin-bottom: 42px;
+}
+
+/*PORTFOLIO*/
+
+.portfolio {
+	padding-top: 51px;
+	padding-bottom: 26px /* margin bottom của portfolio là 34px mà padding-bottom của portfolio là 60 nên 60-34 = 26 */
+}
+
+.portfolio > .row {
+	max-width: 965px;
+	margin: auto;
+}
+
+.portfolio h2 {
+	font-size: 28px;
+	margin-bottom: 11px;
+
+}
+
+.portfolio p {
+	font-size: 16px;
+	margin-bottom: 36px;
+
+}
+
+.portfolio button {
+	
+	margin-bottom: 46px;
+	margin-left:8px;
+	margin-right: 8px;
+
+}
+
+.portfolio button.active {
+	
+	background-color: var(--third-color);
+
+}
+
+.portfolio .box {
+	display: inline-block; /* inline block có lợi thế là rộng của nó bằng đúng thằng nội dung trong nó, còn block thì  bằng 100% so với cha nó */
+	position: relative;
+	margin-bottom: 34px;
+
+}
+
+.portfolio .box .overlay {
+	background-image: url('../images/hover.png');
+	position: absolute; /* khi sử dụng position: absolute thì display của nó sẽ là inline block */
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	pointer-events: none; /*vì sự kiện overlay này ở trên nên đề thẻ dưới sẽ ko có hình bàn tay khi rê chuột vô nên phải dùng pointer-eventer*/
+	transform: scale(0);
+	transition: 1s ease;
+}
+
+.portfolio .box:hover .overlay {
+	transform: scale(1);
+}
+
+.portfolio .box .overlay .content {
+	color: var(--second-color);
+}
+
+.portfolio .box .overlay .content span:nth-of-type(1) {
+
+	display: inline-block;
+	width: 43px;
+	line-height: 45px; /*line height để chữ a nằm giữa*/
+	border-radius: 50%;
+	background-image: url('../images/search.png');
+	font-size: 24px;
+	margin-bottom: 18px;
+
+}
+.portfolio .box .overlay .content span:nth-of-type(2) {
+	font-size: 18px;
+	margin-bottom: 9px; /*thẻ span là inline sẽ ko dùng được margin bottom*/
+	display: inline-block;
+}
+.portfolio .box .overlay .content span:nth-of-type(3) {
+	font-size: 14px;
+}
+
+
+
+/*ABOUT*/
+
+.about {
+	padding-top: 53px;
+	padding-bottom: 54px; /*74-20*/
+	background-color: var(--third-color);
+}
+
+.about h2 {
+	font-size: 28px;
+	margin-bottom: 12px;
+	color: var(--second-color);
+
+}
+
+.about > .row {
+	max-width: 840px;
+	margin: auto;
+}
+
+.about > p {
+	font-size: 14px;
+	margin-bottom: 43px;
+	color: var(--second-color);
+
+}
+
+.about .box-info {
+	background-color: var(--second-color);
+	padding-top: 18px;
+	margin: auto;
+	padding-bottom: 19px;
+	width: 220px;
+	margin-bottom: 20px;
+}
+
+.about .box-info h3 {
+
+	font-size: 18px;
+	margin-bottom: 4px;
+
+} 
+
+.about .box-info em {
+	font-size: 14px;
+	margin-bottom: 19px;
+	font-family: Lato-Italic;
+	display: inline-block;
+	
+}  
+
+
+.about .box-info p {
+	font-size: 14px;
+	text-align: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	
+}   
+
+.about .box {
+	position: relative;
+
+}
+
+.about .box .overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 180px;
+	height: 48px;
+	background-image: url('../images/hover.png');
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly; /*center thì nó gom chung chữ vô, còn đây muốn giãn đều ra thì dùng này*/
+	 opacity: 0;
+	 transition: 1s ease;
+}
+
+.about .box:hover .overlay {
+	opacity: 1;
+}
+
+
+.about .box .overlay a {
+	color: var(--second-color);
+	font-size: 29px;
+	text-decoration: none; /bỏ dấu gạch chân dưới chữ/
+}
+
+
+
+
+
+
+/*CONTACT*/
+.contact {
+	padding-top: 49px;
+	padding-bottom: 60px;
+	background-color: #ecf0f1;
+}
+
+.contact h2 {
+	font-size: 28px;
+	margin-bottom: 11px;
+
+} 
+
+.contact > p {
+	font-size: 14px;
+	margin-bottom: 51px; 
+}
+.contact input,
+.contact textarea {
+	
+	border: 2px solid #bec3c7;
+	border-radius: 0;
+	margin-bottom: 22px;
+}
+.contact input {
+	height: 47px;
+
+}
+.contact textarea {
+	height: 153px;
+
+}
+.contact ::placeholder {
+	font-size: 14px ;
+	font-family: Lato-Italic; 
+	color: #999;
+}
+
+.contact button {
+	padding-left: 28px;
+	padding-right: 28px;
+}
+
+/*RIGHT COL*/
+.contact .right-col > * {
+	font-size: 14px ;
+}
+.contact h3 {
+	
+	margin-bottom: 20px;
+}
+
+.contact address {
+
+	margin-bottom: 24px ;
+	display: flex;
+}
+
+.contact address p {
+	margin-bottom: 0;
+	margin-top: -4px;
+	margin-left: 5px;
+}
+
+
+.contact address ~ p {
+	
+	margin-bottom: 18px ;
+}
+
+footer {
+	height: 87px;
+	background-color: #2d3e50;
+	color: var(--second-color);
+	display: flex;
+	align-items: center;
+
+}
+
+footer p {
+	margin-bottom: 0px;
+}
+
+footer .back-to-top {
+	height:44px;
+	width: 44px;
+	background-color: var(--third-color);
+	display: flex;
+	align-items: center; /*canh giữa chiều dọc*/
+	justify-content: center;  /*canh giữa chiều ngang*/
+	color: var(--second-color);
+	position: fixed; /*đứng yên so với trình duyệt*/
+	right: 42px;
+	bottom: 20px
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 768px) {
+	.navbar-collapse {
+		position: absolute;
+		top: 100%;
+		background-color: rgba(208,208,208, 0.5);
+		left: 0;
+		width: 100%;
+	}
+	.navbar-light .navbar-nav .nav-link {
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-bottom: 5px;
+	}
+	.navbar-light .navbar-nav .nav-item:last-child .nav-link {
+		margin-bottom: 0;
+		
+	}
+	.navbar {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	.dummy-padding-top {
+	padding-top: 57px;
+}
+}
